@@ -11,6 +11,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Upload from "./Upload";
 import Image from "next/image";
 import { ImageUrlContext } from "@/context/imageUrls.context";
+import { addDescription } from "@/lib/actions/post.action";
 
 const PostDialog = () => {
   const [open, setOpen] = useState(false);
@@ -51,6 +52,9 @@ const PostDialog = () => {
             const description = formJson.description;
 
             updateDesciption(imageUrl, description);
+
+            //Calling my mongodb Post Schema for findind data based on imageUrl and update the description
+            addDescription({ imageUrl, description });
             handleClickClose();
             setImageUrl("");
           },

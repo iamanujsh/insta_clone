@@ -53,7 +53,7 @@ const PostCard = ({ imageUrl, description, likeCount, comments }: Props) => {
         <Image width="300" height="200" src={imageUrl} alt="post" />
         <div className="flex items-center gap-3 my-2 ">
           <FavoriteBorderIcon
-            className={`${heartClick && "text-red-500 "} cursor-pointer`}
+            className={`${likeCount && "text-red-500 "} cursor-pointer`}
             onClick={() => {
               handleHeartClick();
             }}
